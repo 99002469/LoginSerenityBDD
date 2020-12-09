@@ -8,6 +8,7 @@ import static org.junit.Assert.assertThat;
 
 import io.cucumber.java.en.*;
 import io.restassured.response.ValidatableResponse;
+import net.serenitybdd.rest.SerenityRest;
 
 
 public class LoginApiSerenity {
@@ -29,7 +30,7 @@ public class LoginApiSerenity {
 		@When("^User makes POST request on Login API$")
 		public void user_makes_post_request_on_login_api() throws Throwable {
 			
-			response = given().header("Content-Type", "application/json").body(fileData).when()
+			response = SerenityRest.given().header("Content-Type", "application/json").body(fileData).when()
 					.post(endPoint).then(); //validatable response
 
 		}
@@ -57,52 +58,3 @@ public class LoginApiSerenity {
 		}
 	
 }
-/*
-	@Steps
-	SerinityApiSteps serenityStepsApi;
-	
-//	static ValidatableResponse response;
-//	String endPoint = "https://fadr-sec-afx-eus-dev.azurewebsites.net/api/v1/security/login";
-	
-	@Given("^User prepares request body using (.+) for Login API$")
-	public void user_prepares_request_body_using_for_login_api(String fileName) throws Throwable {
-		
-		serenityStepsApi.requestBodyForLoginApi(fileName);
-		
-	}
-	
-	@When("^User makes POST request on Login API$")
-	public void user_makes_post_request_on_login_api() throws Throwable {
-		
-		serenityStepsApi.postRequestOnLoginApi();
-	
-
-	}
-
-	@Then("^Status code for Security API returns (.+)$")
-	public void status_code_for_security_api_returns(int statuscode) throws Throwable {
-		
-		serenityStepsApi.statusCodeFromApi(statuscode);
-		
-		
-
-	}
-
-	@And("^Error code for Security API returns (.+)$")
-	public void error_code_for_security_api_returns(String errorcode) throws Throwable {
-			
-		serenityStepsApi.errorCodefromApi(errorcode);
-		
-
-	}
-
-	@And("^Error description for Security API returns (.+)$")
-	public void error_description_for_security_api_returns(String errordesc) throws Throwable {
-		
-		serenityStepsApi.errorDescriptionFromApi(errordesc);
-	}
-	
-	
-
-}
-*/
