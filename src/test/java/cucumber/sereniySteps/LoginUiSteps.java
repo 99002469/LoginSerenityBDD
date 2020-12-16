@@ -1,80 +1,121 @@
 package cucumber.sereniySteps;
 
-import org.openqa.selenium.support.FindBy;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertThat;
+import static org.junit.Assert.assertTrue;
 
-import cucumber.StepDefinitions.Hooks;
-import net.serenitybdd.core.pages.PageObject;
-import net.serenitybdd.core.pages.WebElementFacade;
-import net.thucydides.core.annotations.DefaultUrl;
+import java.util.ArrayList;
+import java.util.List;
 
-@DefaultUrl("https://smpservices-qa.eastus.cloudapp.azure.com/#/")
-public class LoginUiSteps extends PageObject {
+import cucumber.Pages.LoginPage;
+import net.thucydides.core.annotations.Step;
 
+import static org.hamcrest.Matchers.equalTo;
+//import static org.hamcrest.Matchers.is;
 
+public class LoginUiSteps {
+
+static LoginPage loginObjects;
 	
-	Hooks hook = new Hooks();
+	 @Step
+	 public void OpenUrlBrowser() throws InterruptedException {
+		 loginObjects.open();
+	 }
+	 
+	 @Step
+	 public void enterEmail(String email) {
+		 loginObjects.enterTheEmail(email);
+	 }
+	 
+	 @Step
+	 public void enterPassword(String password) {
+		 loginObjects.enterThePassword(password);
+	 }
+	 
+	 @Step
+	 public void clickLogin() {
+		 loginObjects.clickOnLoginButton();
+	 }
+	 
+	 @Step
+	 public void clickRememberMeCheckBox() {
+		 loginObjects.clickOnRememberMeCheckBox();
+	 }
+	 
+	 @Step
+	 public void contactEaton() {
+		 loginObjects.clickOnContactSupport();
+	 }
+	 
 	
-	
-	@FindBy(id = "email")
-    WebElementFacade userName;
-
-    @FindBy(id = "password")
-    WebElementFacade password;
-
-    @FindBy(xpath = "//span[contains(text(),'LOG IN')]")
-     WebElementFacade loginButton;
-
-    @FindBy(xpath = "//div[@class='mat-checkbox-inner-container']")
-     WebElementFacade rememberMe_chkBox;
-
-    @FindBy(xpath = "//div[@class='mat-checkbox-inner-container'] /input")
-     WebElementFacade chk_box;
-
-    @FindBy(xpath = "//a[@class='forgot-password']")
-     WebElementFacade forgotPassword_link;
-
-    @FindBy(xpath = "//a[@class='contact-eaton']")
-     WebElementFacade contactEaton_link;
-
-    @FindBy(xpath = "//mat-icon[@class='matIcon mat-icon notranslate material-icons mat-icon-no-color']")
-     WebElementFacade password_mask;
-
-    @FindBy(xpath = "//a[contains(text(),'CST@eaton.com')]")
-     WebElementFacade support_email;
-
-    @FindBy(xpath = "//a[contains(text(),'800-356-3292')]")
-     WebElementFacade support_contact;
-
-    @FindBy(xpath = "//h1[contains(text(),'Your connection isn't private')]")
-     WebElementFacade proceed;
-
-    @FindBy(xpath = "//*[@id='details-button']")
-     WebElementFacade advanced_btn;
-
-    @FindBy(xpath = "//*[@id='proceed-link']")
-     WebElementFacade proceed_link;
-    
-    public void openUrl_onBrowser() throws Exception {
-    	
-   
-    }
-    
-    public void sendEmail(String email) {
-    	userName.typeAndEnter(email);
-    }
-    
-    public void sendPassword(String Password) {
-    	password.type(Password);
-    }
-    
-    public void clickOnLoginButon() {
-    	loginButton.click();
-    }
-    
-    public void clickOnPasswordEye() {
-    	
-    }
-    
-    
-    
+	 @Step
+	 public void clickPasswordEye () {
+		 loginObjects.clickOnPasswordEye();
+	 }
+	 
+	 @Step
+	 public void clickForgotPassword () {
+		 loginObjects.clickOnForgotPassword();
+	 }
+	 
+	 @Step
+	 public void assertForgopassword() {
+		 String getContact = loginObjects.getSupportContactOnForgotPass();
+	       assertThat("800-356-3292", equalTo(getContact));
+	 }
+	 
+	 @Step
+	 public void assertContatcEaton() {
+		 String contactEmail = loginObjects.getTheEmailContactOnSupport();
+		 assertThat("CST@eaton.com", equalTo(contactEmail));		 
+	 }
+	 
+	 @Step
+	 public void checkLoginButtonEnabled() {
+		 boolean boolVal = loginObjects.loginButtonEnabled();
+		 assertTrue(boolVal);
+	 }
+	 
+	 @Step 
+	 public void checkLoginButtonDisabled() {
+		 boolean boolVal = loginObjects.loginButtonEnabled();
+		 assertFalse(boolVal == false);
+	 }
+	 
+	 /* *****************  Validating the errors using a the List   ***************** */
+	 
+	 @Step 
+	 public void validateErrorMessage(String errormessage) {
+		 
+		 	List<String> list=new ArrayList<String>();  
+		 	list.clear();
+		 	list.addAll(loginObjects.getErrorMessages());
+		 	for(String error:list) {
+		 		 assertThat(error, equalTo(errormessage));		
+		 	}
+	 }
+	 
+	 
+	 @Step
+	 public void assertForPasswordVisibility() {
+		 
+		 String passwordVisibility = loginObjects.checkPasswordVisibility();
+		 //if(passwordVisibility == "Password is Visible")		 
+		 assertThat("visibility", equalTo(passwordVisibility));
+			 
+	 }
+	 
+	 @Step
+	 public void assertForPaswwordMasked() {
+		 String passwordHidden = loginObjects.checkPasswordHidden();
+		 assertThat("visibility_off", equalTo(passwordHidden));
+	 }
+	 
+	 /* ********************** Successful Login ************************ */
+	 
+	 @Step 
+	 public void navigateToFadrHomePage() {
+		 
+	 }
+	 
 }
