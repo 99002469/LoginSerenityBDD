@@ -6,8 +6,8 @@ import java.io.IOException;  // Import the IOException class to handle errors
 public class WriteToFile {
 	
 	
-//		static String filePath = "D:\\L&T Technology Services\\EclipseWorkspace\\EatonFadrApplication\\src\\test\\resources\\FileReadWrite\\";
-		static String filePath = "D:\\Eclipse Work space\\Java\\EatonFadrApplication\\src\\test\\resources\\FileReadWrite\\";
+		static String filePath = "D:\\L&T Technology Services\\EclipseWorkspace\\EatonFadrApplication\\src\\test\\resources\\FileReadWrite\\";
+	  //static String filePath = "D:\\Eclipse Work space\\Java\\LoginPageSerinity01\\src\\test\\resources\\JsonFiles\\";
 	  
 	  public void writeToFile(String fileName, String readText) { //Read Text gets the text from the string that is read in another class
 	    try {

@@ -9,10 +9,9 @@ import java.util.Scanner;
 public class FileRead {  
 	
 
-//	static String filePath = "D:\\L&T Technology Services\\EclipseWorkspace\\EatonFadrApplication\\src\\test\\resources\\FileReadWrite\\";
+	static String filePath = "D:\\L&T Technology Services\\EclipseWorkspace\\EatonFadrApplication\\src\\test\\resources\\FileReadWrite\\";
 	//static String filePathAbs = "/EatonFadrApplication/src/test/resources/FileReadWrite";
-	static String filePath = "D:\\Eclipse Work space\\Java\\EatonFadrApplication\\src\\test\\resources\\FileReadWrite\\";
-	public String readData(String fileName) {
+    public String readData(String fileName) {
     String data = "";
     try {
      
