@@ -18,7 +18,7 @@ public class LoginUiSteps {
 static LoginPage loginObjects;
 	
 	 @Step
-	 public void OpenUrlBrowser() throws InterruptedException {
+	 public void OpenUrlOnBrowser() {
 		 loginObjects.open();
 	 }
 	 
@@ -62,6 +62,7 @@ static LoginPage loginObjects;
 	 public void assertForgopassword() {
 		 String getContact = loginObjects.getSupportContactOnForgotPass();
 	       assertThat("800-356-3292", equalTo(getContact));
+	       loginObjects.closeForgotPassword();
 	 }
 	 
 	 @Step
@@ -115,7 +116,8 @@ static LoginPage loginObjects;
 	 
 	 @Step 
 	 public void navigateToFadrHomePage() {
-		 
+		 String homePage = loginObjects.naviagateToHomePage();
+		 assertThat("View reports", equalTo(homePage));
 	 }
 	 
 }

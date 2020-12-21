@@ -5,6 +5,7 @@ package cucumber.Pages;
 import java.util.List;
 import java.util.stream.Collectors;
 
+
 import net.serenitybdd.core.pages.WebElementFacade;
 import net.thucydides.core.pages.PageObject;
 
@@ -57,13 +58,17 @@ public class LoginPage extends PageObject {
 
     @FindBy(xpath = "//a[contains(text(),'800-356-3292')]")
     private WebElementFacade support_contact;
+    
+    @FindBy(xpath = "//*[@class='mat-button-wrapper'][contains(text(),' Back ')]")
+    private WebElementFacade backButton;
 	
     /* ----- WebElement List -----*/
     
     @FindBy(xpath = "//*[@class ='mat-error ng-star-inserted']")
     List<WebElementFacade> errorMessage;
           
-	
+	@FindBy(id = "viewReportId")
+	private WebElementFacade fadrHomePage;
     
     
 	/*-------------- Advanced Operations ---------------- */
@@ -126,14 +131,17 @@ public class LoginPage extends PageObject {
 		return support_contact.getText();
 	}
 	
+	public void closeForgotPassword() {
+		backButton.click();
+	}
+	
 	/* ************************ Getting Error messages from the Locator to List ************************ */
 	
 	 public List<String> getErrorMessages() {
-	     return 
-	    		 errorMessage.stream()
+	     return  errorMessage.stream()
 	    		 .map(errorMessage -> errorMessage.getText())
 	    		 .collect(Collectors.toList());
-	    		    		
+	    				    		
 	}
 //	static String visible = "";
 	public String checkPasswordVisibility () {
@@ -148,6 +156,8 @@ public class LoginPage extends PageObject {
 		return notVisible;
 	}
 	
-	
+	public String naviagateToHomePage() {
+		return fadrHomePage.getText();
+	}
 	
 }

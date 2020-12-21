@@ -58,7 +58,8 @@ public class LoginLogoutStepsApi {
 	}
 	
 	@Step
-	public void assertSuccessfulLogoutorLogin(String successMsg) throws IOException {
+	public void assertSuccessfulLogoutorLogin(String successMsg) throws Throwable {
+		System.out.println(response.extract().body().asString());
 		assertThat(response.extract().jsonPath().getString("message"), equalTo(successMsg));
 	}
 	
@@ -81,9 +82,12 @@ public class LoginLogoutStepsApi {
 	
 	@Step
 	public ValidatableResponse makeDeleteRequest(String userId, String token)throws IOException {
+		System.out.println("Making Delete Request");
+		System.out.println(readFile.readData(token));
 		response = SerenityRest.given()
 				.header("Content-Type", "application/json")
-				.header("Authorization","Bearer "+readFile.readData(token))
+//				.header("Authorization","Bearer "+readFile.readData(token))
+				.auth().oauth2(readFile.readData(token))
 				.delete(baseUrl+logOffEndPoint+readFile.readData(userId)).then();
 		return response;
 	}

@@ -1,18 +1,18 @@
 package cucumber.PayLoads;
 
 public class CustomerRegisterPayLoad {
+	
+	public String name;
 
-	private String name;
+	public String contactName;
 
-    private String contactName;
+	public String phoneNumber;
 
-    private String phoneNumber;
+	public String emailId;
 
-    private String emailId;
+	public String contactMethod;
 
-    private String contactMethod;
-
-    private String additionalInfo;
+	public String additionalInfo;
 
     public CustomerRegisterPayLoad() {
     	
@@ -20,7 +20,7 @@ public class CustomerRegisterPayLoad {
     
     public CustomerRegisterPayLoad(String name, String contactName, String phoneNumber, 
     		String emailId, String contactMethod, String additionalInfo) {
-        this.name = name;
+    	this.name = name;
     	this.contactName = contactName;
     	this.phoneNumber = phoneNumber;
     	this.emailId = emailId;
@@ -64,5 +64,5 @@ public class CustomerRegisterPayLoad {
     public String getAdditionalInfo(){
         return this.additionalInfo;
     }
-	
+
 }

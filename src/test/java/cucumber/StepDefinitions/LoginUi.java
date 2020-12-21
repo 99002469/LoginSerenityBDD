@@ -13,8 +13,8 @@ public class LoginUi {
 		LoginUiSteps loginStep;
 	
 	 	@Given("^The login page is open on the browser$")
-	    public void the_login_page_is_open_on_the_browser() throws InterruptedException {
-	        loginStep.OpenUrlBrowser();
+	    public void the_login_page_is_open_on_the_browser()  {
+	        loginStep.OpenUrlOnBrowser();
 	 	}
 
 	    @When("^Enter the user name \"([^\"]*)\"$")
@@ -34,7 +34,7 @@ public class LoginUi {
 	    /* Successful Login */
 	    @Then("^Navigate to the FADR Home page$")
 	    public void navigate_to_the_fadr_home_page() {
-	        
+	        loginStep.navigateToFadrHomePage();
 	    }
 
 	    @When("^Remember me Check box unchecked$")
@@ -75,18 +75,6 @@ public class LoginUi {
 	        loginStep.validateErrorMessage(errormessage);
 	     }
 	        
-	    /*
-	    @Then("^The user is Logged out successfully $")
-	    public void the_user_is_logged_out_successfully() {
-	        
-	    }
-	    */
-	    /*
-	    @Then("^the Email text box should not be auto populated with the Email $")
-	    public void the_email_text_box_should_not_be_auto_populated_with_the_email() throws Throwable {
-	        
-	    }
-	    */
 	    
 	    @When("^Clicked on the Forgot Password link$")
 	    public void clicked_on_the_forgot_password_link() {
