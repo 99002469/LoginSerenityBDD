@@ -1,5 +1,6 @@
 Feature: Registering a customer Using API
 
+@API
 Scenario Outline: Verify the Customer Registration with invalid Authorization token 
 #	Given The user prepares a <RequestBody> for <authorization> registering the customer
 	When User makes a POST request on the Customer Registration using "<customerName>" add "<contactName>" add "<phoneNumber>" add "<emailId>" add "<contactMethod>" add "<additionalInfo>" and <authorization>
@@ -13,6 +14,7 @@ Scenario Outline: Verify the Customer Registration with invalid Authorization to
 	|Verify registration with Blank Authorization 		|TesterCust1  | TesterCust   | 123456789   |pavan.v@ltts.com|Others         |Copy to testcust@eaton.com |BlankAuthorization.txt		|401		|9009		|Security token must not be null or empty |	
 	|Verify registration with Expired Authorization		|TesterCust1  | TesterCust   | 123456789   |pavan.v@ltts.com|Others         |Copy to testcust@eaton.com |ExpiredTokenId.txt			|401		|9001		|Unauthorized access				  	  |
 
+@API
 Scenario Outline: Verify the Customer Registration blank/invalid scenarios to register a customer
 	
 #	Given The user prepares a <RequestBody> for <authorization> registering the customer
