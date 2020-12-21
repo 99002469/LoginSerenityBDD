@@ -2,7 +2,7 @@ Feature: Verify the login page for API
 
 
 #Login API for invalid credentials 
-@Security  
+@API @Security  
 Scenario Outline: Verify the login API for invalid credentials
  	Given User prepares request body using <RequestBody> for Login API
     When User makes POST request on Login API
@@ -21,7 +21,7 @@ Scenario Outline: Verify the login API for invalid credentials
         |Test without password attribute|LoginWithoutPasswordAttribute.json |400		|1001		|User name or password cannot be null or empty|
 
 #Use Scenario Outline       
-@Security @SuccessfulLogin
+@API @Security @SuccessfulLogin
 Scenario Outline: Verify the Login API With valid credentials 
 	Given User prepares request body using <RequestBody> for Login API 
 	When User makes POST request on Login API
