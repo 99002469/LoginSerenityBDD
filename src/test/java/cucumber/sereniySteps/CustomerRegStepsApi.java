@@ -2,6 +2,10 @@ package cucumber.sereniySteps;
 
 
 
+import static org.hamcrest.Matchers.equalTo;
+import static org.hamcrest.Matchers.is;
+import static org.junit.Assert.assertThat;
+
 import cucumber.PayLoads.CustomerRegisterPayLoad;
 import cucumber.utils.FileRead;
 import io.restassured.response.ValidatableResponse;
@@ -16,7 +20,7 @@ public class CustomerRegStepsApi {
 	CustomerRegisterPayLoad customerObject;
 		
 	@Step
-	public ValidatableResponse makePostRequest(String customername, String contactname, String phonenumber, String emailid, 
+	public void makePostRequest(String customername, String contactname, String phonenumber, String emailid, 
 			String contactmethod, String additionalinfo, String authorization) throws Throwable {
 		
 		customerObject = new CustomerRegisterPayLoad(customername,customername,phonenumber,emailid,contactmethod,additionalinfo);
@@ -28,8 +32,22 @@ public class CustomerRegStepsApi {
 				.when()
 				.post(CustomerRegSite).then();
 		System.out.println("response" + responseCus.extract().toString());
-		return responseCus;
 		
+	}
+	
+	@Step
+	public void validateTheStatusCode(int statuscode) {
+		assertThat(responseCus.extract().statusCode(), is(equalTo(statuscode)));
+	}
+	
+	@Step 
+	public void validateTheErrorCode(String errorcode) {
+		assertThat(responseCus.extract().jsonPath().getString("errorCode"), equalTo(errorcode));
+	}
+	
+	@Step
+	public void validateTheErrorDesciption(String errordesc) {
+		assertThat(responseCus.extract().jsonPath().getString("errorDescription"), equalTo(errordesc));
 	}
 }
 

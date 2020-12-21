@@ -58,7 +58,8 @@ public class CustomerRegistrationPage extends PageObject {
 	@FindBy(xpath = "//span[@class='mat-button-wrapper'][contains(text(),' Submit ')]")
 	private WebElementFacade submitButton;
 	
-	
+	@FindBy(xpath = "//*[@class='header-text'][contains(text(),'Customer contact information')]")
+	private WebElementFacade userOnCustomerRegisterPage;
 	/* ******************* Error Message to a list ********************** */
 	
 	@FindBy(xpath = "//*[@class ='mat-error ng-star-inserted']")
@@ -75,8 +76,18 @@ public class CustomerRegistrationPage extends PageObject {
 		customerRegistration.click();
 	}
 	
+	public String userIsOnCustomerRegistration() {
+		return userOnCustomerRegisterPage.getText();
+	}
+	
 	public void enterCustomerName(String name) {
 		typeInto(customerName, name);
+	}
+	
+	public String getTextFromCustomerName() {
+		System.out.println(customerName.getValue());
+		return customerName.getValue();
+		
 	}
 	
 	public void enterCustomerContactName(String contactName) {
@@ -87,6 +98,11 @@ public class CustomerRegistrationPage extends PageObject {
 		typeInto(customerContactPhone, phone);
 	}
 	
+	public String getTextFromCustomerPhone() {
+		System.out.println(customerContactPhone.getValue());
+		return customerContactPhone.getValue();
+	}
+	
 	public void enterCustomerEmail(String email) {
 		typeInto(customerContactEmail, email);
 	}
@@ -94,23 +110,8 @@ public class CustomerRegistrationPage extends PageObject {
 	public void selectContactMethod(String contactMethod) {
 		
 		selectContactMethod.click();
-//		selectFromDropdown((WebElement) selectContactMethod, contactMethod);
-//		customerContactMethod.click();
-//		selectFromDropdown(selectContactMethod, contactMethod);
-//		if(contactMethod == "E-mail") {
-//			selectEmail.click();
-//		}
-//		
-//		else if (contactMethod == "Telephone") {
-//			selectTelephone.click();
-//		}
-//		
-//		else if(contactMethod == "Other") {
-			selectOthers.click();
-//		}
-//		
-//		else
-//			selectSelectContactMethod.click();
+		selectOthers.click();
+
 	}
 	
 	public void enterAdditionalInfo(String additionalInfo) {

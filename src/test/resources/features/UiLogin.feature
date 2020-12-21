@@ -1,74 +1,74 @@
 Feature: Verify the login page
-#
-#
-#@UI @First
-#Scenario Outline: Verify Login with invalid credentials 
-#	  Given The login page is open on the browser
-#	  When Enter the user name "<User name>"
-#	  And Enter the Password "<Password>"
-#	  Then Login button should be Enabled
-#	  When click on login button
-#	  Then Error message "<Error Message>" Should be displayed
-#	  
-# Examples:
-# 	|Description    		  |User name					|Password|Error Message				    	  |
-# 	|Invalid Email   		  |fadradmin@eaton.com			|random	 |Invalid Email or Password			  |
-# 	|Invalid Password		  |fadr_support_admin@eaton.com	|qwerty  |Invalid Email or Password			  |
-# 	|Invalid User and Password|fadradmin@eaton.com			|qwerty  |Invalid Email or Password			  |
-# 
-# @UI
-# Scenario Outline: Verify login with invalid email format
-# 	Given The login page is open on the browser
-#	  When Enter the user name "<User name>"
-#	  And Enter the Password "<Password>" 
-#	  Then Login button should be Enabled
-#	  When click on login button
-#	  Then Error message "<Error Message>" Should be displayed
-# Examples:
-# 	|Description    		  |User name					|Password|Error Message				    	  |
-# 	|Invalid Email Format	  |fadradmin					|qwerty	 |E-mail must be a valid email address|
-# 
-# 
-#@UI 
-#Scenario Outline: Login with Blank credentials
-#	 Given The login page is open on the browser
-#	 When Enter the user name "<User name>"
-#	 And Enter the Password "<Password>"
-#	 Then Login button should be Disabled
-#	 Then Error message "<Error Message>" Should be displayed
-#	 
-# Examples:
-# 	|Description			|User name					  |Password |Error Message				    |
-# 	|Blank Email			|		 					  |qwerty	|E-mail is required  			|
-# 	|Blank Password			|fadr_support_admin@eaton.com |			|Password is required			|
-# 	|Blank User and Password|		 					  |			|E-mail is required				|
-#
-#
-#@UI 
-#Scenario: Remember me checkbox is unchecked
-#	 Given The login page is open on the browser
-#	 When Enter the user name "fadr_support_admin@eaton.com"
-#	 And Enter the Password "qwerty" 
-#	 Then Login button should be Enabled
-#	 When Remember me Check box unchecked
-#	 When click on login button
-##	 Then Home page of FADR is open 
-##	 When Click on the Logout Button 
-##	 Then The user is Logged out successfully 
-##	 Then the Email text box should not be auto populated with the Email 
-#
-#@UI	  
-#Scenario: Remember me checkbox is checked
-#	 Given The login page is open on the browser
-#	 When Enter the user name "fadr_support_admin@eaton.com"
-#	 And Enter the Password "qwerty" 
-#	 Then Login button should be Enabled
-#	 When Remember me Check box checked
-#	 When click on login button 
-##	 Then Home page of FADR is open 
-##	 When Click on the Logout Button 
-##	 Then The user is Logged out successfully 
-##	 Then the Email text box should be auto populated with the Email  
+
+
+@UI @First
+Scenario Outline: Verify Login with invalid credentials 
+	  Given The login page is open on the browser
+	  When Enter the user name "<User name>"
+	  And Enter the Password "<Password>"
+	  Then Login button should be Enabled
+	  When click on login button
+	  Then Error message "<Error Message>" Should be displayed
+	  
+ Examples:
+ 	|Description    		  |User name					|Password|Error Message				    	  |
+ 	|Invalid Email   		  |fadradmin@eaton.com			|random	 |Invalid Email or Password			  |
+ 	|Invalid Password		  |fadr_support_admin@eaton.com	|qwerty  |Invalid Email or Password			  |
+ 	|Invalid User and Password|fadradmin@eaton.com			|qwerty  |Invalid Email or Password			  |
+ 
+ @UI
+ Scenario Outline: Verify login with invalid email format
+ 	Given The login page is open on the browser
+	  When Enter the user name "<User name>"
+	  And Enter the Password "<Password>" 
+	  Then Login button should be Enabled
+	  When click on login button
+	  Then Error message "<Error Message>" Should be displayed
+ Examples:
+ 	|Description    		  |User name					|Password|Error Message				    	  |
+ 	|Invalid Email Format	  |fadradmin					|qwerty	 |E-mail must be a valid email address|
+ 
+ 
+@UI 
+Scenario Outline: Login with Blank credentials
+	 Given The login page is open on the browser
+	 When Enter the user name "<User name>"
+	 And Enter the Password "<Password>"
+	 Then Login button should be Disabled
+	 Then Error message "<Error Message>" Should be displayed
+	 
+ Examples:
+ 	|Description			|User name					  |Password |Error Message				    |
+ 	|Blank Email			|		 					  |qwerty	|E-mail is required  			|
+ 	|Blank Password			|fadr_support_admin@eaton.com |			|Password is required			|
+ 	|Blank User and Password|		 					  |			|E-mail is required				|
+
+
+@UI 
+Scenario: Remember me checkbox is unchecked
+	 Given The login page is open on the browser
+	 When Enter the user name "fadr_support_admin@eaton.com"
+	 And Enter the Password "qwerty" 
+	 Then Login button should be Enabled
+	 When Remember me Check box unchecked
+	 When click on login button
+#	 Then Home page of FADR is open 
+#	 When Click on the Logout Button 
+#	 Then The user is Logged out successfully 
+#	 Then the Email text box should not be auto populated with the Email 
+
+@UI	  
+Scenario: Remember me checkbox is checked
+	 Given The login page is open on the browser
+	 When Enter the user name "fadr_support_admin@eaton.com"
+	 And Enter the Password "qwerty" 
+	 Then Login button should be Enabled
+	 When Remember me Check box checked
+	 When click on login button 
+#	 Then Home page of FADR is open 
+#	 When Click on the Logout Button 
+#	 Then The user is Logged out successfully 
+#	 Then the Email text box should be auto populated with the Email  
 
 @UI	@ForgotPassword
 Scenario: Verify the forgot password link

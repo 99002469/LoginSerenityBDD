@@ -1,6 +1,8 @@
 package cucumber.sereniySteps;
 
+
 import static org.hamcrest.Matchers.equalTo;
+import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertThat;
 import static org.junit.Assert.assertTrue;
@@ -56,6 +58,11 @@ public class CustomerRegistrationStepsUi {
 	}
 	
 	@Step 
+	public void userIsOnCustomerRegisterPage() {
+		assertThat(customerObject.userIsOnCustomerRegistration(), equalTo("Customer contact information"));
+	}
+	
+	@Step 
 	public void validateErrorMessage(String ErrorMessage) {
 		
 		List<String> errList = new ArrayList<String>();
@@ -79,10 +86,32 @@ public class CustomerRegistrationStepsUi {
 	}
 	
 	@Step
-	public void inputFeildValidation(String custName, String contactPhone ) {
-		for(int i = 0 ; i<10 ; i++) {
-			custName += custName; 
-		}
-		//Assert the lengths 
+	public void inputFeildValidationName(String custName) {
+	
+		String customerName = custName + "AppendThisStringForMorethan256CharactesAppendThisStringForMorethan256CharactesAppendThisStringForMorethan256CharactesAppendThisStringForMorethan256CharactesAppendThisStringForMorethan256CharactesAppendThisStringForMorethan256CharactesAppendThisStringForMorethan256CharactesAppendThisStringForMorethan256Charactes";
+		customerObject.enterCustomerName(customerName);
+		String CustName = customerObject.getTextFromCustomerName();
+		
+		System.out.println("String From the Name Feild: " + CustName);
+		
+		int nameLen = CustName.length();
+		System.out.println("Length From the Name Input Feild: "+ nameLen);
+		int actualName = 256;
+		assertThat(nameLen, is(equalTo(actualName)));
+		
+
+	}
+	
+	@Step 
+	public void inputFeildValidationNumber(String contactPhone ) {
+		String CustNum = customerObject.getTextFromCustomerPhone();
+		
+		System.out.println("String From the Number Feild: " + CustNum);
+		
+		int numLen = CustNum.length();
+		System.out.println("Length From the Number Input Feild: "+ numLen);
+		
+		int actualNum = 16;
+		assertThat(numLen, is(equalTo(actualNum)));
 	}
 }

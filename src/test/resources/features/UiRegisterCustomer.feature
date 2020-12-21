@@ -13,13 +13,12 @@ Scenario Outline: Verify the Customer registration with blank credentials
 	And Error Message "<ErrorMessage>" is displayed
 	
 	Examples:
-	|Test description			   	 						|CustName	  | ContactName  |ContactPhone |ContactEmail     |ContactMethod	| additionalInfo            |ErrorMessage							|
-	|Verify Registration with Blank Customer Name  			|             | TesterCust   | 123456789   | some@random.com |Other		 	|Copy to testcust@eaton.com |Customer name is required			|
+	|Test description			   	 						|CustName	  | ContactName  |ContactPhone |ContactEmail     |ContactMethod	|AdditionalInfo	            |ErrorMessage							|
+	|Verify Registration with Blank Customer Name  			|             | TesterCust   | 123456789   | some@random.com |Other		 	|Copy to testcust@eaton.com |Customer name is required				|
 	|Verify Resitration with Blank Contact Name 	 		| TesterCust1 |              | 123456789   | some@random.com |Other 		|Copy to testcust@eaton.com |Contact name is required				|
 	|Verify Registration with Blank Contact Number			| TesterCust1 | TesterCust   |             | some@random.com |Other			|Copy to testcust@eaton.com |Phone number is required				|
-	|Verify Registration with Blank Contact Email 	 		| TesterCust1 | TesterCust   | 123456789   |                 |Other			|Copy to testcust@eaton.com |E-mail is required					|
-	|Verify Registration With Blank Contact Method			| TesterCust1 | TesterCust   | 123456789   | some@random.com |Other			|Copy to testcust@eaton.com |Approved contact method is required	|
-	|Verify Registration with Blank Credentials				|          	  |              |             |                 |Other			|                           |Customer name is required 			|	
+	|Verify Registration with Blank Contact Email 	 		| TesterCust1 | TesterCust   | 123456789   |                 |Other			|Copy to testcust@eaton.com |E-mail is required						|
+	|Verify Registration With Blank Contact Method			| TesterCust1 | TesterCust   | 123456789   | some@random.com |Other			|Copy to testcust@eaton.com |Approved contact method is required	|	
 
 @UI @CustomerRegistration	
 Scenario Outline: Verify the Customer registration with invalid credentials
@@ -63,7 +62,7 @@ Scenario Outline: Verify the Reset Button on Customer Registration page
 	
 @UI @CustomerRegistration	
 Scenario Outline: Verify the Customer registration entering Characters more than feild limits
-	iven FADR Home page is open on Browser
+	Given FADR Home page is open on Browser
 	And Authorized user selects the Factory Reset from the menu
 	When User Navigates to the Customer Registration
 	Then Customer registration page is open
@@ -73,7 +72,7 @@ Scenario Outline: Verify the Customer registration entering Characters more than
 	
 	Examples:
 	|Test description			   	 								|CustName	  		 					| ContactName  	|ContactPhone 			|ContactEmail     |
-	|Verify the Customer Name feild with more than 256 characters	| ThisStringGeneratesMoreThan256Chars 	| TesterCust   	| 123456789   			| some@random.com |
+	|Verify the Customer Name feild with more than 256 characters	| ThisStringGeneratesMoreThan256Chars 	| TesterCust   	| 123456789123456789 	| some@random.com |
 	|Verify the Contact Phone feild with more than 16 numbers		| TesterCust1		 					| TesterCust   	| 123456789123456789    | some@random.com |
 	
 	

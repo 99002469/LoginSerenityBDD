@@ -1,6 +1,6 @@
 Feature: Verify the Logout feature of the API
 
-@API
+@API	
 Scenario Outline: Verify the logout with invalid Authorization
 #	Given User has a User id <user_id> token id <token_id> from the login
 	When User makes a DELETE request for LogOff using <user_id> and <token_id>
@@ -25,7 +25,7 @@ Scenario Outline: Verify the login with Blank Authorzation
 	|Logout with blank Authorizaion and valid userID	|UserId.txt			|BlankAuthorization.txt |401		  |9009			|Security token must not be null or empty|
 	|Logout with blank Authorizaion and invalid userID	|InvalidUserId.txt	|BlankAuthorization.txt |401		  |9009			|Security token must not be null or empty|
 	
-@API   
+@API    
 Scenario Outline: Verify the login with Expired Authorization
 #	Given User has a User id <user_id> token id <token_id> from the login
 	When User makes a DELETE request for LogOff using <user_id> and <token_id>

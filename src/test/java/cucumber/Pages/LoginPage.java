@@ -114,6 +114,7 @@ public class LoginPage extends PageObject {
 		
 	}
 	
+	
 	public void clickOnForgotPassword() {
 		forgot_password_link.click();
 	}
@@ -159,5 +160,7 @@ public class LoginPage extends PageObject {
 	public String naviagateToHomePage() {
 		return fadrHomePage.getText();
 	}
+	
+	
 	
 }
