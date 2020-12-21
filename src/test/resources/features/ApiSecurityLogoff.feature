@@ -1,5 +1,6 @@
 Feature: Verify the Logout feature of the API
-	
+
+@API
 Scenario Outline: Verify the logout with invalid Authorization
 #	Given User has a User id <user_id> token id <token_id> from the login
 	When User makes a DELETE request for LogOff using <user_id> and <token_id>
@@ -12,7 +13,7 @@ Scenario Outline: Verify the logout with invalid Authorization
 	|Logout with invalid Authorizaion and valid userID	|UserId.txt			|InvalidTokenId.txt |401		  |9001			|Unauthorized access					 |
 	|Logout with invalid Authorizaion and invalid userID|InvalidUserId.txt	|InvalidTokenId.txt |400		  |9010			|Please enter valid GUID				 |
 	
-		
+@API		
 Scenario Outline: Verify the login with Blank Authorzation 
 #	Given User has a User id <user_id> token id <token_id> from the login
 	When User makes a DELETE request for LogOff using <user_id> and <token_id>
@@ -24,7 +25,7 @@ Scenario Outline: Verify the login with Blank Authorzation
 	|Logout with blank Authorizaion and valid userID	|UserId.txt			|BlankAuthorization.txt |401		  |9009			|Security token must not be null or empty|
 	|Logout with blank Authorizaion and invalid userID	|InvalidUserId.txt	|BlankAuthorization.txt |401		  |9009			|Security token must not be null or empty|
 	
-    
+@API   
 Scenario Outline: Verify the login with Expired Authorization
 #	Given User has a User id <user_id> token id <token_id> from the login
 	When User makes a DELETE request for LogOff using <user_id> and <token_id>
@@ -38,7 +39,7 @@ Scenario Outline: Verify the login with Expired Authorization
 	|Logout with Expired Authorizaion and invalid userID|InvalidUserId.txt	|ExpiredTokenId.txt |400		  |9010			|Please enter valid GUID				 |
 	
 	
-
+@API
 Scenario Outline: Verify the login with invalid UserId
 #	Given User has a User id <user_id> token id <token_id> from the login
 	When User makes a DELETE request for LogOff using <user_id> and <token_id>
@@ -50,6 +51,7 @@ Examples:
     |Test Description									|user_id			|token_id			|status_code  |error_code	|error_desc								 |
 	|Logout with invalid User id and valid Authorization|InvalidUserId.txt	|TokenId.txt		|400		  |9010			|Please enter valid GUID				 |
 
+@API
 Scenario Outline: Verify the logout with Blank UserID
 #	Given User has a User id <user_id> token id <token_id> from the login
 	When User makes a DELETE request for LogOff using <user_id> and <token_id>
@@ -60,7 +62,7 @@ Scenario Outline: Verify the logout with Blank UserID
     |Logout with blank Authorizaion and blank userID	|BlankUserId.txt	|BlankAuthorization.txt |404	  |
     |Logout with Expired Authorizaion and blank userID	|BlankUserId.txt	|ExpiredTokenId.txt |404		  |
     
-@Security
+@API @Security
 Scenario Outline: Successful Logoff from the API
 #	Given User has a User id <user_id> token id <token_id> from the login
 	When User makes a DELETE request for LogOff using <user_id> and <token_id>
