@@ -100,8 +100,7 @@ static LoginPage loginObjects;
 	 @Step
 	 public void assertForPasswordVisibility() {
 		 
-		 String passwordVisibility = loginObjects.checkPasswordVisibility();
-		 //if(passwordVisibility == "Password is Visible")		 
+		 String passwordVisibility = loginObjects.checkPasswordVisibility();		 
 		 assertThat("visibility", equalTo(passwordVisibility));
 			 
 	 }
