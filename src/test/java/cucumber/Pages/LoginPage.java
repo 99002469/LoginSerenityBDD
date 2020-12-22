@@ -106,12 +106,14 @@ public class LoginPage extends PageObject {
 	
 	public String getThePasswordText() {
 		return eye_button.getAttribute("password");
-	
 	}
 	
 	public void clickOnRememberMeCheckBox() {
 		remember_me_checkbox.click();
-		
+	}
+	
+	public boolean isRememberMeChecked() {
+		return remember_me_checkbox.isSelected();
 	}
 	
 	
