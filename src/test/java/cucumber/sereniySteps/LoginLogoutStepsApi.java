@@ -70,8 +70,6 @@ public class LoginLogoutStepsApi {
 	}
 		
 	
-	FileRead readFile = new FileRead();
-	
 	@Step
 	public ValidatableResponse makeDeleteRequest(String userId, String token)throws IOException {
 		System.out.println("Making Delete Request");
@@ -79,8 +77,8 @@ public class LoginLogoutStepsApi {
 		response = SerenityRest.given()
 				.header("Content-Type", "application/json")
 //				.header("Authorization","Bearer "+readFile.readData(token))
-				.auth().oauth2(readFile.readData(token))
-				.delete(baseUrl+logOffEndPoint+readFile.readData(userId)).then();
+				.auth().oauth2(fileRead.readData(token))
+				.delete(baseUrl+logOffEndPoint+fileRead.readData(userId)).then();
 		return response;
 	}
 
