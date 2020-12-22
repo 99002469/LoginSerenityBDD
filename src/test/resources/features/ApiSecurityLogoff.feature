@@ -2,7 +2,6 @@ Feature: Verify the Logout feature of the API
 
 @API	
 Scenario Outline: Verify the logout with invalid Authorization
-#	Given User has a User id <user_id> token id <token_id> from the login
 	When User makes a DELETE request for LogOff using <user_id> and <token_id>
 	Then Status code for Security API returns <status_code>
     And Error code for Security API returns <error_code>
@@ -15,7 +14,6 @@ Scenario Outline: Verify the logout with invalid Authorization
 	
 @API		
 Scenario Outline: Verify the login with Blank Authorzation 
-#	Given User has a User id <user_id> token id <token_id> from the login
 	When User makes a DELETE request for LogOff using <user_id> and <token_id>
 	Then Status code for Security API returns <status_code>
     And Error code for Security API returns <error_code>
@@ -27,7 +25,6 @@ Scenario Outline: Verify the login with Blank Authorzation
 	
 @API    
 Scenario Outline: Verify the login with Expired Authorization
-#	Given User has a User id <user_id> token id <token_id> from the login
 	When User makes a DELETE request for LogOff using <user_id> and <token_id>
 	Then Status code for Security API returns <status_code>
     And Error code for Security API returns <error_code>
@@ -41,7 +38,6 @@ Scenario Outline: Verify the login with Expired Authorization
 	
 @API
 Scenario Outline: Verify the login with invalid UserId
-#	Given User has a User id <user_id> token id <token_id> from the login
 	When User makes a DELETE request for LogOff using <user_id> and <token_id>
 	Then Status code for Security API returns <status_code>
     And Error code for Security API returns <error_code>
@@ -53,7 +49,6 @@ Examples:
 
 @API
 Scenario Outline: Verify the logout with Blank UserID
-#	Given User has a User id <user_id> token id <token_id> from the login
 	When User makes a DELETE request for LogOff using <user_id> and <token_id>
 	Then Status code for Security API returns <status_code>
  Examples:
@@ -64,7 +59,6 @@ Scenario Outline: Verify the logout with Blank UserID
     
 @API @Security
 Scenario Outline: Successful Logoff from the API
-#	Given User has a User id <user_id> token id <token_id> from the login
 	When User makes a DELETE request for LogOff using <user_id> and <token_id>
 	Then Status code for Security API returns <status_code>
 	And Succesful Logout return a message <successMsg>
