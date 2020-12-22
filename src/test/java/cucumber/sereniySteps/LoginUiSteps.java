@@ -80,7 +80,7 @@ static LoginPage loginObjects;
 	 @Step 
 	 public void checkLoginButtonDisabled() {
 		 boolean boolVal = loginObjects.loginButtonEnabled();
-		 assertFalse(boolVal == false);
+		 assertFalse(boolVal != false);
 	 }
 	 
 	 /* *****************  Validating the errors using a the List   ***************** */
