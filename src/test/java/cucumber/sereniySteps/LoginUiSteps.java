@@ -41,6 +41,16 @@ static LoginPage loginObjects;
 	 public void clickRememberMeCheckBox() {
 		 loginObjects.clickOnRememberMeCheckBox();
 	 }
+	
+	@Step 
+	 public void isRememberMeChecked() {
+		 boolean RemCheck = loginObjects.isRememberMeChecked();
+		 if(RemCheck == true)
+			 assertTrue(RemCheck);
+		 else if(RemCheck == false) {
+			 assertFalse(RemCheck);
+		 }
+	 }
 	 
 	 @Step
 	 public void contactEaton() {
