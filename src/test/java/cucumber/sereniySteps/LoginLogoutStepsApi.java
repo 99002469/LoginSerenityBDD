@@ -27,10 +27,8 @@ public class LoginLogoutStepsApi {
 	WriteToFile fileWrite = new WriteToFile();
 	
 	@Step
-	public String readFiles(String fileNames) throws IOException {
-		
-		dataFromFile = fileRead.readData(fileNames);
-		return dataFromFile;		
+	public void readFiles(String fileNames) throws IOException {
+		dataFromFile = fileRead.readData(fileNames);		
 	}
 	
 	
@@ -64,19 +62,13 @@ public class LoginLogoutStepsApi {
 	}
 	
 	@Step
-	public String loginToken() throws IOException{
+	public void WriteLoginTokenAndUserId() throws IOException{
 		token = response.extract().jsonPath().getString("data.token");
 		fileWrite.writeToFile("TokenId.txt", token);
-		return token;
-	}
-	
-	@Step
-	public String loginUserId() throws IOException{
 		userId = response.extract().jsonPath().getString("data.id");
 		fileWrite.writeToFile("UserId.txt", userId);
-		return userId;
 	}
-	
+		
 	
 	FileRead readFile = new FileRead();
 	

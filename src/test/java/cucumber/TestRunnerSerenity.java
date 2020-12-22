@@ -14,7 +14,7 @@ import net.serenitybdd.cucumber.CucumberWithSerenity;
 				},         
         glue = {"cucumber.StepDefinitions"},
         monochrome = true,
-//		tags = "@UI",
+		tags = "@UI",
 		plugin = {"pretty", "junit:target/automationreport.xml"})   
 
 	

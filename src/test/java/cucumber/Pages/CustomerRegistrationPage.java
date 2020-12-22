@@ -52,7 +52,7 @@ public class CustomerRegistrationPage extends PageObject {
 	@FindBy(id = "customerTextArea")
 	private WebElementFacade additionalInformation;
 	
-	@FindBy(xpath = "//span[@class='mat-button-wrapper'][contains(text(),'Reset ')]")
+	@FindBy(xpath = "//*[@class = 'reset-button mat-stroked-button mat-button-base']")
 	private WebElementFacade resetButton;
 	
 	@FindBy(xpath = "//span[@class='mat-button-wrapper'][contains(text(),' Submit ')]")
@@ -110,7 +110,21 @@ public class CustomerRegistrationPage extends PageObject {
 	public void selectContactMethod(String contactMethod) {
 		
 		selectContactMethod.click();
-		selectOthers.click();
+		if (contactMethod == "E-mail")
+		{
+			selectEmail.click();
+		}
+		
+		else if(contactMethod =="Telephone") {
+			selectTelephone.click();
+		}
+		
+		else if(contactMethod == "Other") {
+			selectOthers.click();
+		}
+		else 
+			selectSelectContactMethod.click();
+		
 
 	}
 	
@@ -121,6 +135,7 @@ public class CustomerRegistrationPage extends PageObject {
 	public void clickOnResetButton() {
 		resetButton.click();
 	}
+	
 /*	
 	public void clickOnSubmitButton() {
 		submitButton.click();

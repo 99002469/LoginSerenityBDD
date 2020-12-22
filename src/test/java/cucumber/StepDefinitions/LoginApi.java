@@ -17,18 +17,10 @@ public class LoginApi {
 	
 		static String fileData = "";
 		static ValidatableResponse response;
-		//String endPoint = "https://fadr-sec-afx-eus-dev.azurewebsites.net/api/v1/security/login";
 		
-		@Given("The user provides a request body for login")
-		public void request_body_for_login() throws Throwable {
-		    // Write code here that turns the phrase above into concrete actions
-		    fileData = loginLogoutSteps.readFiles("LoginWithValidCreds.json");
-			
-		}
-
 		@Given("^User prepares request body using (.+) for Login API$")
 		public void request_body_for_login_api(String fileName) throws IOException {
-			fileData = loginLogoutSteps.readFiles(fileName);
+			loginLogoutSteps.readFiles(fileName);
 			
 		}
 
@@ -60,9 +52,7 @@ public class LoginApi {
 		@Then("^Succesful login return a message (.+)$")
 		public void succesful_login(String successMsg) throws Throwable {
 			loginLogoutSteps.assertSuccessfulLogoutorLogin(successMsg);
-			
-				System.out.println("Login Token after Successful Login: " + loginLogoutSteps.loginToken());
-				System.out.println("User Id after Sucessful Login " + loginLogoutSteps.loginUserId());
+			loginLogoutSteps.WriteLoginTokenAndUserId();
 		}
 		
 		/* **********************  Logout API StepDefinitions   ********************** */

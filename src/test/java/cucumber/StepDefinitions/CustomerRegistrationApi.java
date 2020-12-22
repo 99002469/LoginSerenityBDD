@@ -13,26 +13,24 @@ public class CustomerRegistrationApi {
 	static ValidatableResponse responseCustReg;
 
     @When("^User makes a POST request on the Customer Registration using \\\"([^\\\"]*)\\\" add \\\"([^\\\"]*)\\\" add \\\"([^\\\"]*)\\\" add \\\"([^\\\"]*)\\\" add \\\"([^\\\"]*)\\\" add \\\"([^\\\"]*)\\\" and (.+)")
-    public void user_makes_a_post_request_on_the_customer_registration_using_and(String customername, String contactname, String phoneNumber, String emailId, String contactMethod, String additionalInfo, String authorization) throws Throwable {
+    public void user_makes_a_post_request_on_the_customer_registration(String customername, String contactname, String phoneNumber, String emailId, String contactMethod, String additionalInfo, String authorization) throws Throwable {
     	customerReg.makePostRequest(customername, contactname, phoneNumber, emailId, contactMethod, additionalInfo, authorization);
     }
 
     @Then("^Status code for Site API returns (.+)$")
     public void status_code_validation(int statuscode) {
     	customerReg.validateTheStatusCode(statuscode);
-//    	assertThat(responseCustReg.extract().statusCode(), is(equalTo(statuscode))); 
     }
 
     @And("^Error code for Site API returns (.+)$")
     public void error_code_validation(String errorcode) {
     	customerReg.validateTheErrorCode(errorcode);
-//    	assertThat(responseCustReg.extract().jsonPath().getString("errorCode"), equalTo(errorcode));
+
     }
 
     @And("^Error description for Site API returns (.+)$")
     public void error_description_validation(String errordesc) {
     	customerReg.validateTheErrorDesciption(errordesc);
-//    	assertThat(responseCustReg.extract().jsonPath().getString("errorDescription"), equalTo(errordesc));
     }
 	
 }

@@ -31,7 +31,6 @@ public class CustomerRegistrationUi {
 
     @Then("^Customer registration page is open$")
     public void customer_registration_page_is_open() {
-        //Assert the customer Registration page is Open
     	customerRegister.userIsOnCustomerRegisterPage();
     }
 
@@ -46,13 +45,12 @@ public class CustomerRegistrationUi {
     }
 
     @Then("^Data Entered Should be cleared$")
-    public void data_entered_should_be_cleared() throws Throwable {
-        //Assert the Entered values are null after the Reset button is Clicked
-    	
+    public void data_entered_should_be_cleared() throws Throwable { 
+    	customerRegister.assertDataIsCleared();
     }
 
     @Then("^Input feild should not accept the chracters more than field for \"([^\"]*)\" and \"([^\"]*)\"$")
-    public void input_feild_should_not_accept_the_chracters_more_than_field_for_something_and_something(String custname, String contactphone) throws Throwable {
+    public void input_character_limit_validation(String custname, String contactphone) throws Throwable {
     	customerRegister.inputFeildValidationName(custname);
     	customerRegister.inputFeildValidationNumber(contactphone);
     	
@@ -78,9 +76,5 @@ public class CustomerRegistrationUi {
         customerRegister.validateErrorMessage(errormessage);
     }
 
-    @And("^Any error Messages Displayed are also cleared$")
-    public void any_error_messages_displayed_are_also_cleared() throws Throwable {
-        //Assert the Error Messages are Cleared
-    }
 	
 }
