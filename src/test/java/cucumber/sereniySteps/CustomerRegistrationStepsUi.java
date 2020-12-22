@@ -89,7 +89,7 @@ public class CustomerRegistrationStepsUi {
 	@Step 
 	public void assertSubmitButtonDisabled() {
 		boolean submitButton = customerObject.isSubmitButtonEnabled();
-		assertFalse(submitButton == false);
+		assertFalse(submitButton != false);
 	}
 	
 	@Step
