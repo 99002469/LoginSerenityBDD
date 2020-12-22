@@ -24,14 +24,14 @@ Scenario Outline: Verify the Customer Registration blank/invalid scenarios to re
 	And Error description for Site API returns <error_desc>
  
 	Examples: 
-	|Test description			   	 		|customerName |contactName  |phoneNumber  |emailId         | contactMethod | additionalInfo             |authorization	|status_code|error_code |error_desc     							|
-	|Verify Registration with Blank Customer Name  			|             |TesterCust   | 123456789   |pavan.v@ltts.com| Others        | Copy to testcust@eaton.com |TokenId.txt	|400   		|9008		|Input parameters cannot be null or empty	|
-	|Verify Resitration with Blank Contact Name 	 		|TesterCust   |             | 123456789   |pavan.v@ltts.com| Others        | Copy to testcust@eaton.com |TokenId.txt	|400   	 	|9008		|Input parameters cannot be null or empty	|
-	|Verify Registration with Blank Contact Number			| TesterCust  |TesterCust   |             |pavan.v@ltts.com| Others        | Copy to testcust@eaton.com |TokenId.txt	|400		|9008		|Input parameters cannot be null or empty	|
-	|Verify Registration with Blank Contact Email 	 		| TesterCust  |TesterCust   | 123456789   |		   | Others        | Copy to testcust@eaton.com |TokenId.txt	|400    	|9008		|Input parameters cannot be null or empty	|
-	|Verify Registration With Blank Contact Method			| TesterCust  |TesterCust   | 123456789   |pavan.v@ltts.com|               | Copy to testcust@eaton.com |TokenId.txt	|400    	|9008		|Input parameters cannot be null or empty	|
-	|Verify Registration with Invalid Contact Email			| TesterCust  |             | 123456789   |invalidEmail	   | Others        | Copy to testcust@eaton.com |TokenId.txt	|400		|9007		|Please provide valid email address			|
-	|Verify Registration with Blank Credentials			|             |             |             |                |               |                            |TokenId.txt	|400		|9008		|Input parameters cannot be null or empty	|	
+	|Test description			   	 		|customerName  |contactName  |phoneNumber  |emailId         | contactMethod | additionalInfo             |authorization	|status_code|error_code |error_desc     							|
+	|Verify Registration with Blank Customer Name  			|              |TesterCust   | 123456789   |pavan.v@ltts.com| Others        | Copy to testcust@eaton.com |TokenId.txt	|400   		|9008		|Input parameters cannot be null or empty	|
+	|Verify Resitration with Blank Contact Name 	 		| TesterCust1  |             | 123456789   |pavan.v@ltts.com| Others        | Copy to testcust@eaton.com |TokenId.txt	|400   	 	|9008		|Input parameters cannot be null or empty	|
+	|Verify Registration with Blank Contact Number			| TesterCust1  |TesterCust   |             |pavan.v@ltts.com| Others        | Copy to testcust@eaton.com |TokenId.txt	|400		|9008		|Input parameters cannot be null or empty	|
+	|Verify Registration with Blank Contact Email 	 		| TesterCust1  |TesterCust   | 123456789   |		   | Others        | Copy to testcust@eaton.com |TokenId.txt	|400    	|9008		|Input parameters cannot be null or empty	|
+	|Verify Registration With Blank Contact Method			| TesterCust1  |TesterCust   | 123456789   |pavan.v@ltts.com|               | Copy to testcust@eaton.com |TokenId.txt	|400    	|9008		|Input parameters cannot be null or empty	|
+	|Verify Registration with Invalid Contact Email			| TesterCust1  |             | 123456789   |invalidEmail	   | Others        | Copy to testcust@eaton.com |TokenId.txt	|400		|9007		|Please provide valid email address			|
+	|Verify Registration with Blank Credentials			|              |             |             |                |               |                            |TokenId.txt	|400		|9008		|Input parameters cannot be null or empty	|	
 	
 	
 	
