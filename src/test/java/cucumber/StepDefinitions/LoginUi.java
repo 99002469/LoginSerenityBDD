@@ -39,12 +39,13 @@ public class LoginUi {
 
 	    @When("^Remember me Check box unchecked$")
 	    public void remember_me_check_box_unchecked() {
-	        
+	        loginStep.isRememberMeChecked();
 	    }
 
 	    @When("^Remember me Check box checked$")
 	    public void remember_me_check_box_checked() {
 	        loginStep.clickRememberMeCheckBox();
+		loginStep.isRememberMeChecked();
 	    }
 
 	    
